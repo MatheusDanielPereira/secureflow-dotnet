@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "secureflow.application": {
+        "type": "Project",
+        "dependencies": {
+          "SecureFlow.Domain": "[1.0.0, )"
+        }
+      },
+      "secureflow.domain": {
+        "type": "Project"
+      }
+    }
+  }
+}

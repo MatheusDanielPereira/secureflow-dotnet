@@ -1,0 +1,30 @@
+@host = https://localhost:7001
+@token = replace-with-a-real-access-token
+@workItemId = replace-with-a-work-item-id
+
+GET {{host}}/healthz
+Accept: application/json
+X-Correlation-ID: local-health-check
+
+###
+
+GET {{host}}/api/work-items?page=1&pageSize=20
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST {{host}}/api/work-items
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Quarterly access review",
+  "description": "Review privileged access."
+}
+
+###
+
+POST {{host}}/api/work-items/{{workItemId}}/submit
+Authorization: Bearer {{token}}
+If-Match: "1"
